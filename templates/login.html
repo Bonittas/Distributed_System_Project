@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Log in</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>
+<body>
+<header>
+<br/>
+   <p class="logo"><i class="fas fa-glass-cheers"></i></p>
+        <p class='back'><a href='welcome.jsp'>Back</a>        
+
+</header>
+<br/>
+<br/>
+</br>
+<h1><i class="fas fa-sign-in-alt"></i> Log in</h1>
+   
+    <form action="/login" method="post" class='login'>
+    
+      <label for="username"><i class="fas fa-user"></i> Username:</label>
+       <input type="text" name="username" id="username" required><br>
+        
+
+       <label for="password"><i class="fas fa-lock"></i> Password:</label>
+       <input type="password" name="password" id="password" required><br>
+        
+       <input type="submit" value="Log in">
+       
+       <p> Don't have an account yet? <a style="  text-decoration: none; color: rgb(143, 143, 143);" href="signup.html"> SIGN UP</a></p>
+    </form>
+   
+</body>
+</html>

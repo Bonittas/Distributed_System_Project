@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Operations</title>
+    <style>
+        /* Existing styles */
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        .form-container h1 {
+            margin-bottom: 10px;
+        }
+
+        .form-container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-container input[type="text"],
+        .form-container textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+
+        .form-container button {
+            padding: 5px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Edit File</h1>
+        <form action="/save" method="POST">
+            <input type="hidden" name="id" value="{{.ID}}">
+            <label for="content">File Content:</label>
+            <textarea name="content" id="content" rows="10">{{.Content}}</textarea>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

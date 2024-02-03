@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create New File</title>
+    <link rel="stylesheet" type="text/css" href="/static/styles.css">
+</head>
+<body>
+    <h1>Create New File</h1>
+    <form action="/create" meth<!DOCTYPE html>
+        <html>
+        <head>
+            <title>Upload File</title>
+        </head>
+        <body>
+            <h1>Upload File</h1>
+            <form action="/create" method="POST" enctype="multipart/form-data">
+                <label for="fileName">File Name:</label>
+                <input type="text" id="fileName" name="fileName" required><br><br>
+                <label for="fileContent">Choose File:</label>
+                <input type="file" id="fileContent" name="fileContent" required><br><br>
+                <input type="submit" value="Upload">
+            </form>
+        </body>
+        </html>od="post">
+        <label for="fileName">File Name:</label>
+        <input type="text" id="fileName" name="fileName" required>
+
+        <label for="fileContent">Content:</label>
+        <textarea id="fileContent" name="fileContent" rows="10" required></textarea>
+
+        <button type="submit">Create</button>
+    </form>
+</body>
+</html>
