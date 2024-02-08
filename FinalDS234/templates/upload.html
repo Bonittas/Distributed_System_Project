@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload File</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <style>
+        body{
+            margin-top:5px;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .header img {
+            width: 100%;
+            height: 150px;
+            margin-right: 10px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .upload {
+            background-color: rgb(76, 186, 217);
+            color: #fff;
+            width: 120px;
+            height: 40px;
+            border: 2px solid white; 
+            border-radius: 4px;
+            margin: 2px;
+        }       
+         .head3 {
+            background-color:rgb(41, 176, 213);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom:20px;
+        }
+                
+        .header-buttons {
+            display: flex;
+            justify-content: flex-end; 
+            align-items: center;
+            border-radius: white 4px;
+            margin:4px;
+        }
+        
+
+        .bton{
+    display:flex;
+    .back{
+        background-color: white;
+        color: #fff;
+        width: 80px;
+        height: 30px;
+        border: 2px solid ; /* Modify the border properties */
+        border-radius: 4px;
+        margin: 2px;
+        margin-left:20px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header class='head3'>
+        <div class="header-buttons">
+            <div class="bton" >
+                <input type="button" value="Logout" onclick="logout()">
+            </div>
+        </div>
+    </header>    <form action="/create" method="POST" enctype="multipart/form-data">
+        <label for="fileName">File Name:</label>
+        <input type="text" id="fileName" name="fileName" required><br><br>
+        <label for="fileContent">Choose File:</label>
+        <input type="file" id="fileContent" name="fileContent" required><br><br>
+        <input type="submit" class="upload" value="Upload">
+    </form>
+
+    <script>
+        const socket = new WebSocket('ws://localhost:8081/ws');
+
+        socket.addEventListener('message', function (event) {
+            const msg = JSON.parse(event.data);
+
+            if (msg.action === 'file_create') {
+                location.reload();
+                window.location.href = "/index";
+            }
+        });
+    </script>
+</body>
+</html>

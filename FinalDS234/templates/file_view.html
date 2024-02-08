@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View File</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<body>
+    <div class="header">
+        <a href="/view"><i class="fas fa-arrow-left"></i></a>
+    </div>
+    <div>
+    <div id="slide-container" data-file-id="{{.File.ID}}">
+        <h2>{{.File.Name}}</h2>
+        <pre id="file-content">{{.File.Content}}</pre>
+        <p id="delete-message" style="color: red;"></p>
+    </div>
+</div>
+
+
+
+    <script>
+        // Example WebSocket client-side code
+        const socket = new WebSocket("ws://localhost:8081/ws");
+
+        socket.addEventListener("message", (event) => {
+            const msg = JSON.parse(event.data);
+            if (msg.action === "file_update") {
+                // Update file content in the UI
+                const fileContentElement = document.getElementById("file-content");
+                if (fileContentElement) {
+                    fileContentElement.textContent = msg.content;
+                }
+            } else if (msg.action === "file_delete") {
+                // Handle file deletion
+                const deletedFileID = msg.content;
+                // Check if the current file being viewed is the one being deleted
+                const currentFileID = document.getElementById("slide-container").getAttribute("data-file-id");
+                if (deletedFileID === currentFileID) {
+                    // Redirect to the view page or handle as needed
+                    const fileContentElement = document.getElementById("file-content");
+                    const deleteMessageElement = document.getElementById("delete-message");
+                    if (fileContentElement && deleteMessageElement) {
+                        fileContentElement.textContent = "";
+                        deleteMessageElement.textContent = "Content has been deleted.";
+                        window.location.href = "/file/view?id=" + deletedFileID;
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

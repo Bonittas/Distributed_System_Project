@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Operations</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
+</head>
+
+<body>
+    <div class="form-container">
+        <h1>Edit File</h1>
+        <form action="/save" method="POST">
+            <input type="hidden" name="id" value="{{.ID}}">
+            <label for="content">File Content:</label>
+            <textarea name="content" id="content" rows="10">{{.Content}}</textarea>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

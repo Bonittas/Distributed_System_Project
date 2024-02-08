@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Operations</title>
+    <style>
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .head3 {
+            background-color: rgb(41, 176, 213);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            border-radius: white 4px;
+            padding-bottom:30px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            background-color: #e4e1e1;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        .form-container {
+            margin-top: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 300px;
+        }
+
+        form input, form textarea {
+            margin-bottom: 10px;
+            padding: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: rgb(41, 176, 213);
+            color: #fff;
+        }
+
+        .file-actions {
+            display: flex;
+            justify-content: flex-end; /* Move buttons to the right end */
+        }
+
+        .file-actions .edit, .file-actions .delete {
+            width: 80px;
+            height: 30px;
+            margin: 2px;
+        }
+
+        .file-actions .edit {
+            background-color: green;
+            color: white;
+            border: 2px solid green;
+            border-radius: 4px;
+            margin-left: 5px; /* Add margin to separate buttons */
+        }
+
+        .file-actions .delete {
+            background-color: red;
+            color: #fff;
+            border: 2px solid red;
+            border-radius: 4px;
+        }
+
+        .btns {
+            display: flex;
+        }
+    </style>
+
+</head>
+<body>
+<header class='head3'>
+    <div class="header-buttons">
+        <h1>File Operations</h1>
+        <div>
+            <input type="button" value="Create File" onclick="createFile()">
+            <input type="button" value="Logout" onclick="logout()">
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="form-container">
+        <form action="/save" method="POST">
+            <!-- Existing form elements -->
+        </form>
+    </div>
+
+    <div class="file-list">
+        <h2>Previously Added Files</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>File Name</th>
+                <th>Actions</th>
+            </tr>
+            {{range .Files}}
+            <tr>
+                <td>{{.ID}}</td>
+                <td>{{.Name}}</td>
+                <td class="file-actions">
+                    <div class="btns">
+                        <form>
+                            <button class='edit'><a href="/edit?id={{.ID}}" class='edit'>Edit</a></button>
+                        </form>
+                        <form method="post" action="/delete">
+                            <input type="hidden" name="fileID" value="{{.ID}}">
+                            <button type="submit" class="delete">Delete</button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+            {{end}}
+        </table>
+    </div>
+</div>
+
+<script>
+    function createFile() {
+        window.location.href = "/create";
+    }
+
+    function logout() {
+        // Send a POST request to the logout endpoint
+        fetch('/logout', {
+            method: 'POST',
+            credentials: 'same-origin' // Include cookies in the request
+        })
+        .then(response => {
+            if (response.ok) {
+                //Redirect the user to the login page
+                window.location.href = "/login";
+            } else {
+                // Handle error
+                console.log("Logout failed");
+            }
+        });
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,424 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
+    h1 {
+    font-family: 'Lato', sans-serif;
+    font-weight:300;
+    letter-spacing: 2px;
+    font-size:48px;
+    }
+    p {
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    font-size:14px;
+    color: #333333;
+    }
+    
+    .header1 {
+    position:relative;
+    text-align:center;
+    background: linear-gradient(60deg, rgb(76, 186, 217) 0%, rgba(0,172,193,1) 100%);
+    color:white;
+    }
+    .logo {
+    width:50px;
+    fill:white;
+    padding-right:15px;
+    display:inline-block;
+    vertical-align: middle;
+    }
+    
+    .inner-header {
+    height:35vh;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    }
+    
+    .flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+    
+    .waves {
+    position:relative;
+    width: 100%;
+    height:15vh;
+    margin-bottom:-7px; 
+    min-height:50px;
+    max-height:100px;
+    }
+    
+    .content {
+    position:relative;
+    height:10vh;
+    text-align:center;
+    background-color: white;
+    }
+    
+    /* Animation */
+    
+    .parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
+    }
+    .parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 7s;
+    }
+    .parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 10s;
+    }
+    .parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 13s;
+    }
+    .parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 20s;
+    }
+    @keyframes move-forever {
+    0% {
+    transform: translate3d(-90px,0,0);
+    }
+    100% {
+    transform: translate3d(85px,0,0);
+    }
+    }
+    @media (max-width: 768px) {
+    .waves {
+    height:20px;
+    min-height:20px;
+    }
+    .content {
+    height:20vh;
+    }
+    h1 {
+    font-size:24px;
+    }
+    }
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+.header h1 {
+    margin: 0;
+}
+
+
+
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.form-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+}
+.text{
+    width: 50%;
+
+}
+#fileContent{
+    width: 100%;
+}
+textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 1.5;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: rgb(76, 186, 217);
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+
+.form-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-container input,
+.form-container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-button {
+    background: rgb(76, 186, 217);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 80%;
+}
+
+.input-button:hover {
+    background-color: rgb(76, 186, 217);
+}
+
+.file-list {
+    position: relative;
+
+    align-items: center;
+}
+
+.file-list table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.file-list th, .file-list td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+.file-list th {
+    background-color: rgb(76, 186, 217);
+    color: white;
+}
+
+.file-actions button, .file-actions a {
+    background: rgb(76, 186, 217);
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    margin-right: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.file-actions button:hover, .file-actions a:hover {
+    background:rgb(54, 189, 227);
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.input-button {
+    background:  rgb(76, 186, 217);
+    color: white;
+    border: none;
+    padding: 14px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.input-button:hover {
+    background-color:  rgb(76, 186, 217);
+}
+
+.button-container {
+    text-align: center;
+    margin: 20px;
+}
+.lg {
+    align-items: center;
+    border-radius:white 100px;
+    margin-left: 10px;
+    width: 64px;
+    margin-top: 10px;
+    position: absolute;
+right: 10px;
+top: 30px;
+
+}
+
+.button-container button {
+    background: #fff;
+    color:  rgb(41, 176, 213);
+    border: 1px solid  rgb(76, 186, 217);
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.button-container button:hover {
+    background-color: rgb(48, 162, 194);
+}
+#delete-message {
+    color: red;
+}
+
+#file-content {
+    white-space: pre-wrap;
+}
+
+.login-container {
+    background: #fff;
+    padding: 20px;
+    margin-top: 50px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+}
+
+.login-container h1 {
+    text-align: center;
+    color: #333;
+}
+
+.login-container label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.login-container .input-button {
+    width: 100%;
+}
+
+.login-container .input-button:hover {
+    background-color: rgb(76, 186, 217);
+}
+.header {
+    background-color: rgb(48, 162, 194);
+    color: #fff;
+    padding: 10px;
+    height: 50px;
+    align-items: center;
+}
+
+.header a {
+    color: #fff;
+    text-decoration: none;
+}
+
+#slide-container {
+    padding: 80px;
+    width: 80%;
+
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+#file-content {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+
+}
+
+#delete-message {
+    color: red;
+    margin-top: 10px;
+}
+.container1{
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
